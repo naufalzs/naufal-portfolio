@@ -35,6 +35,7 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
+  justify-content: flex-start;
   padding: 4rem 2rem;
 
   @media screen and (max-width: 450px) {
@@ -42,7 +43,7 @@
   }
 }
 
-#work.app__container, #skills.app__container {
+#work.app__container {
   height: auto;
   min-height: 100vh;
 
