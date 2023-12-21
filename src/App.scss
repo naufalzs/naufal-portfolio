@@ -52,6 +52,15 @@
   }
 }
 
+#skills.app__container {
+  .app__wrapper {
+    padding: 1rem 2rem;
+  }
+  .app__skills.app__flex {
+    justify-content: flex-start;
+  }
+}
+
 .copyright {
   width: 100%;
   padding: 2rem 0 0;
