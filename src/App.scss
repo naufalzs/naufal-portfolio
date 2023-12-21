@@ -1,6 +1,9 @@
 .app {
   background-color: var(--primary-color);
   font-family: var(--font-base);
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
 }
 
 .app__whitebg {
@@ -12,6 +15,7 @@
 }
 
 .app__container {
+  scroll-snap-align: center;
   width: 100%;
   height: 100vh;
   padding-top: 74px;
