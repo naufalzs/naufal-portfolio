@@ -29,6 +29,10 @@
   }
 }
 
+.app__container#contact, .app__container#testimonial {
+  height: auto;
+}
+
 .app__flex {
   display: flex;
   justify-content: center;
