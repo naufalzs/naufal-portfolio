@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { images } from "../../constants";
+import { images, navigationList } from "../../constants";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
@@ -21,7 +21,7 @@ const Navbar = () => {
           <img src={images.logo} alt="logo" />
         </div>
         <ul className="app__navbar-links">
-          {["home", "about", "work", "skills", "testimonial", "contact"].map((item) => (
+          {navigationList.map((item) => (
             <li className="app__flex p" key={`link-${item}`}>
               <div />
               <a href={`#${item}`}>{item}</a>
