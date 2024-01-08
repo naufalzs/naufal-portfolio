@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { images } from "../../constants";
@@ -10,10 +11,10 @@ const scaleVariants = {
     opacity: [0, 1],
     transition: {
       duration: 1,
-      ease: "easeInOut"
-    }
-  }
-}
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Header = () => {
   return (
@@ -28,13 +29,25 @@ const Header = () => {
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, I am</p>
-              <h1 className="head-text">Naufal</h1>
+              <h1 className="head-text head-text--header">Naufal Zufar</h1>
+              <h1 className="head-text head-text--subheader">Web Developer</h1>
             </div>
           </div>
 
           <div className="tag-cmp app__flex">
-            <p className="p-text">Web Developer</p>
-            <p className="p-text">Freelancer</p>
+            <p className="p-text">
+              I love to{" "}
+              <Typewriter
+                words={[
+                  "create fast and elegant code.",
+                  "craft eye-catching and user-friendly website.",
+                  "turn your ideas into realities.",
+                ]}
+                loop={true}
+                delaySpeed={2000}
+                cursor={true}
+              />
+            </p>
           </div>
         </div>
       </motion.div>
@@ -55,10 +68,11 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-      variants={scaleVariants}
-      whileInView={scaleVariants.whileinView}
-      className="app__header-circles">
-        {[images.flutter, images.redux, images.sass].map((circle, index)=> (
+        variants={scaleVariants}
+        whileInView={scaleVariants.whileinView}
+        className="app__header-circles"
+      >
+        {[images.nextjs, images.redux, images.tailwind].map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
             <img src={circle} alt="circle" />
           </div>

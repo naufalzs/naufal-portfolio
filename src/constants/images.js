@@ -34,6 +34,9 @@ import redux from "../assets/redux.png";
 import sass from "../assets/sass.png";
 import typescript from "../assets/typescript.png";
 import vue from "../assets/vue.png";
+import nextjs from "../assets/nextjs.png";
+import tailwind from "../assets/tailwind-css.png";
+import mui from "../assets/material-ui.png";
 
 export default {
   profile,
@@ -69,4 +72,7 @@ export default {
   sass,
   typescript,
   vue,
+  nextjs,
+  tailwind,
+  mui,
 };

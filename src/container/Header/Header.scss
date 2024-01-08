@@ -69,12 +69,21 @@
 
   .tag-cmp {
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 1rem;
 
     p {
       width: 100%;
-      text-transform: uppercase;
-      text-align: right;
+    }
+
+    p,
+    p span {
+      font-size: 1.3rem;
+      color: var(--black-color);
+    }
+
+    p span {
+      color: var(--secondary-color);
+      font-weight: 500;
     }
   }
 
