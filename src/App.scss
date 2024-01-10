@@ -224,6 +224,18 @@
   }
 }
 
+.app__backdrop {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+
 @media screen and (max-width: 500px) {
   .app__navigation,
   .app__social {
