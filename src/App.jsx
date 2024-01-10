@@ -1,4 +1,4 @@
-import { About, Header, Footer, Skills, Work } from "./container";
+import { HallOfFame, Header, Footer, Skills, Work } from "./container";
 import { Navbar } from "./components";
 
 import "./App.scss";
@@ -8,7 +8,7 @@ export default function App() {
     <div className="app">
       <Navbar />
       <Header />
-      <About />
+      <HallOfFame />
       <Work />
       <Skills />
       {/* <Testimonial /> */}
