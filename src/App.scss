@@ -30,6 +30,10 @@
 
 .app__container#home {
   height: 100vh;
+  
+  @media screen and (max-width: 1024px) {
+    height: max-content;
+  }
 }
 
 .app__flex {
