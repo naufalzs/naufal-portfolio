@@ -58,7 +58,56 @@
   position: relative;
 }
 
+.app__profile-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 24px;
+
+  @media screen and (max-width: 640px) {
+    bottom: 10px;
+
+    margin: 0 12px;
+  }
+}
+
+.app__profile-stack-list {
+  display: flex;
+  gap: 1rem;
+
+  .app__profile-stack-item {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #fff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    overflow: hidden;
+
+    img {
+      border-radius: 0;
+      width: 50%;
+      height: 100%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    gap: 0.5rem;
+
+    .app__profile-stack-item {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
 .app__profile-hover {
+  z-index: 2;
   position: absolute;
   top: 0;
   left: 0;

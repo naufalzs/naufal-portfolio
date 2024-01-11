@@ -12,9 +12,19 @@ const About = () => {
   const [hallOfFame, setHallOfFame] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "worksNew" && isHallOfFame]`;
+    const query = `*[_type == "worksNew" && isHallOfFame] {
+        _id,
+        title,
+        shortDescription,
+        githubUrl,
+        siteUrl,
+        stack[]->{icon, name},
+        workImages
+      }
+    `;
 
     client.fetch(query).then((data) => {
+      // console.log(data)
       setHallOfFame(data);
     });
   }, []);
@@ -35,6 +45,20 @@ const About = () => {
           >
             <div className="app__profile-image">
               <img src={urlFor(selected.workImages[0])} alt={selected.title} />
+              <div className="app__profile-overlay">
+                <div className="app__profile-stack-list">
+                  {selected?.stack?.map((tech) => (
+                    <div
+                      className="app__profile-stack-item app__flex"
+                      key={tech.name}
+                    >
+                      <div className="app__flex">
+                        <img src={urlFor(tech.icon)} alt={tech.name} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{

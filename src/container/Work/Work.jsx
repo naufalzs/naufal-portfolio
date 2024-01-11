@@ -31,11 +31,11 @@ const Work = () => {
     }] {
       _id,
       title,
-description,
-githubUrl,
-siteUrl,
-stack[]->{icon, name},
-workImages
+      description,
+      githubUrl,
+      siteUrl,
+      stack[]->{icon, name},
+      workImages
     }`;
 
     setTimeout(() => {
@@ -101,6 +101,20 @@ workImages
           >
             <div className="app__work-img app__flex">
               <img src={urlFor(work.workImages[0])} alt={work.title} />
+              <div className="app__work-overlay">
+                <div className="app__work-stack-list">
+                  {work?.stack?.map((tech) => (
+                    <div
+                      className="app__work-stack-item app__flex"
+                      key={tech.name}
+                    >
+                      <div className="app__flex">
+                        <img src={urlFor(tech.icon)} alt={tech.name} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="app__work-content app__flex">
