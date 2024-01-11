@@ -99,6 +99,18 @@
 
   .wd__desc {
     font-size: 1rem;
+
+    * {
+      margin-bottom: 12px;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    ol, ul {
+      margin-left: 20px;
+    }
   }
 
   @media screen and (max-width: 640px) {
