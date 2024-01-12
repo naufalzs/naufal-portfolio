@@ -13,6 +13,7 @@ export default function App() {
       <Skills />
       {/* <Testimonial /> */}
       <Footer />
+      <div id="backdrop" />
     </div>
   );
 }
