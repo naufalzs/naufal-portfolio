@@ -5,7 +5,7 @@ import "./Work.scss";
 import { client, urlFor } from "../../client";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { PortableText } from "@portabletext/react";
-import { Backdrop, WorkDetail } from "../../components";
+import { Backdrop, Pagination, WorkDetail } from "../../components";
 
 const Work = () => {
   const [tags, setTags] = useState([]);
@@ -14,21 +14,32 @@ const Work = () => {
   const [works, setWorks] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [selected, setSelected] = useState({});
+  const [currPage, setCurrPage] = useState(1);
+  const [totalWork, setTotalWork] = useState([]);
+  const workPerPage = 5;
+  const totalPage = totalWork.length;
 
   // get all tags
   useEffect(() => {
     const queryTags = `*[_type == "workTags" ] | order(title asc) . title`;
+    const queryProject = `*[_type == "worksNew"] {title}`;
 
     client.fetch(queryTags).then((data) => {
       setTags(data);
+    });
+    client.fetch(queryProject).then((data) => {
+      setTotalWork(splitter(data.length));
     });
   }, []);
 
   // get works filtered by active tags
   useEffect(() => {
+    const start = workPerPage * (currPage - 1);
+    const end = workPerPage * currPage - 1;
+
     const query = `*[_type == "worksNew" ${
       activeFilter !== "All" ? `&& "${activeFilter}" in tags[]->title` : ""
-    }] {
+    }][${start}..${end}] {
       _id,
       title,
       description,
@@ -43,15 +54,25 @@ const Work = () => {
         setWorks(data);
       });
     }, 150);
-  }, [activeFilter]);
+  }, [activeFilter, currPage]);
 
   // set transition when works array changed
   useEffect(() => {
     setAnimateCard([{ y: 0, opacity: 1 }]);
   }, [works]);
 
+  // function
+  const splitter = (total) => {
+    let arr = [];
+    for (let count = 0; count < total; count += workPerPage) {
+      arr.push(count);
+    }
+    return arr;
+  };
+
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
+    setCurrPage(1);
     setAnimateCard([{ y: 100, opacity: 0 }]);
   };
 
@@ -63,6 +84,20 @@ const Work = () => {
   const closeModal = () => {
     setIsModal(false);
     setSelected({});
+  };
+
+  const prevPage = () => {
+    if (currPage > 1) {
+      setCurrPage(currPage - 1);
+      setAnimateCard([{ y: 100, opacity: 0 }]);
+    }
+  };
+
+  const nextPage = () => {
+    if (currPage < totalPage) {
+      setCurrPage(currPage + 1);
+      setAnimateCard([{ y: 100, opacity: 0 }]);
+    }
   };
 
   return (
@@ -126,6 +161,13 @@ const Work = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      <Pagination
+        now={currPage}
+        total={totalPage}
+        clickPrev={prevPage}
+        clickNext={nextPage}
+      />
 
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
         {isModal && (
