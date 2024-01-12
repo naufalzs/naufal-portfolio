@@ -16,7 +16,7 @@ const Work = () => {
   const [selected, setSelected] = useState({});
   const [currPage, setCurrPage] = useState(1);
   const [totalWork, setTotalWork] = useState([]);
-  const workPerPage = 5;
+  const workPerPage = 6;
   const totalPage = totalWork.length;
 
   // get all tags

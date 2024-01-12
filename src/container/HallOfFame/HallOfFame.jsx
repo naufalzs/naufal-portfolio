@@ -58,6 +58,18 @@ const About = () => {
                     </div>
                   ))}
                 </div>
+                <div className="app__profile-link-list">
+                  <a href={selected.githubUrl} target="_blank" rel="noreferrer">
+                    <div className="app__profile-link-item app__flex">
+                      <AiFillGithub />
+                    </div>
+                  </a>
+                  <a href={selected.siteUrl} target="_blank" rel="noreferrer">
+                    <div className="app__profile-link-item app__flex">
+                      <FiExternalLink />
+                    </div>
+                  </a>
+                </div>
               </div>
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -66,7 +78,7 @@ const About = () => {
                   ease: "easeInOut",
                   staggerChildren: 0.5,
                 }}
-                className="app__profile-hover app__flex"
+                className="app__profile-hover"
               >
                 <a href={selected.githubUrl} target="_blank" rel="noreferrer">
                   <motion.div
