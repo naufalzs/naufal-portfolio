@@ -16,18 +16,20 @@ const Navbar = () => {
         }`}
         onClick={() => setToggle(false)}
       />
-      <nav className="app__navbar">
+      <header className="app__navbar">
         <div className="app__navbar-logo">
           <img src={images.logo} alt="logo" />
         </div>
-        <ul className="app__navbar-links">
-          {navigationList.map((item) => (
-            <li className="app__flex p" key={`link-${item}`}>
-              <div />
-              <a href={`#${item}`}>{item}</a>
-            </li>
-          ))}
-        </ul>
+        <nav className="app__navbar-links-container">
+          <ul className="app__navbar-links">
+            {navigationList.map((item) => (
+              <li className="app__flex p" key={`link-${item}`}>
+                <div />
+                <a href={`#${item}`}>{item}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="app__navbar-menu">
           <HiMenuAlt4 onClick={() => setToggle(true)} />
@@ -38,19 +40,21 @@ const Navbar = () => {
               transition={{ duration: 0.85, ease: "easeOut" }}
             >
               <HiX onClick={() => setToggle(false)} />
-              <ul>
-                {navigationList.map((item) => (
-                  <li key={item}>
-                    <a href={`#${item}`} onClick={() => setToggle(false)}>
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <nav className="app__navbar-menu-mobile-container">
+                <ul className="app__navbar-menu-mobile">
+                  {navigationList.map((item) => (
+                    <li key={item}>
+                      <a href={`#${item}`} onClick={() => setToggle(false)}>
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </motion.div>
           )}
         </div>
-      </nav>
+      </header>
     </>
   );
 };

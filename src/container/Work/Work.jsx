@@ -127,13 +127,14 @@ const Work = () => {
         className="app__work-portfolio"
       >
         {works.map((work, index) => (
-          <motion.div
+          <motion.article
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
             className="app__work-item app__flex"
             key={index}
             onClick={() => openModal(work)}
           >
+            {/* image */}
             <div className="app__work-img app__flex">
               <img src={urlFor(work.workImages[0])} alt={work.title} />
               <div className="app__work-overlay">
@@ -152,13 +153,14 @@ const Work = () => {
               </div>
             </div>
 
+            {/* title and desc */}
             <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
+              <h3 className="bold-text">{work.title}</h3>
               <div className="p-text" style={{ marginTop: 10 }}>
                 <PortableText value={work.description} />
               </div>
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </motion.div>
 

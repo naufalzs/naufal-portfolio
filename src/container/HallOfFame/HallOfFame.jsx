@@ -24,7 +24,6 @@ const About = () => {
     `;
 
     client.fetch(query).then((data) => {
-      // console.log(data)
       setHallOfFame(data);
     });
   }, []);
@@ -36,13 +35,14 @@ const About = () => {
       </h2>
       <div className="app__profiles">
         {hallOfFame.map((selected, index) => (
-          <motion.div
+          <motion.article
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "spring" }}
             className="app__profile-item"
             key={selected.title + index}
           >
+            {/* image */}
             <div className="app__profile-image">
               <img src={urlFor(selected.workImages[0])} alt={selected.title} />
               <div className="app__profile-overlay">
@@ -102,13 +102,15 @@ const About = () => {
                 </a>
               </motion.div>
             </div>
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
+
+            {/* title and desc */}
+            <h3 className="bold-text" style={{ marginTop: 20 }}>
               {selected.title}
-            </h2>
+            </h3>
             <div className="p-text" style={{ marginTop: 10 }}>
               <PortableText value={selected.shortDescription} />
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
     </>

@@ -6,14 +6,14 @@ const AppWrap = (Component, idName, classNames = "") =>
       <div id={idName} className={`app__container ${classNames}`}>
         <SocialMedia />
 
-        <div className="app__wrapper app__flex">
+        <section className="app__wrapper app__flex">
           <Component />
 
-          <div className="copyright">
+          <footer className="copyright">
             <p className="p-text">@2023 Naufal</p>
             <p className="p-text">All rights reserved</p>
-          </div>
-        </div>
+          </footer>
+        </section>
 
         <NavigationDots active={idName} />
       </div>
