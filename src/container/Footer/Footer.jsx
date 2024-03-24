@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
-import { images } from "../../constants";
 import "./Footer.scss";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
@@ -41,40 +39,6 @@ const Footer = () => {
   return (
     <>
       <h2 className="head-text">Take a coffee & chat with me!</h2>
-
-      <div className="app__footer-cards">
-        <a
-          href="mailto:naufal.zufar.s@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-          className="p-text"
-        >
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.05 }}
-            className="app__footer-card"
-          >
-            <img src={images.email} alt="email" />
-            naufal.zufar.s@gmail.com
-          </motion.div>
-        </a>
-
-        <a
-          href="https://wa.me/+6281223768121"
-          target="_blank"
-          rel="noreferrer"
-          className="p-text"
-        >
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.05 }}
-            className="app__footer-card"
-          >
-            <img src={images.mobile} alt="mobile" />
-            Chat me on Whatsapp
-          </motion.div>
-        </a>
-      </div>
 
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
